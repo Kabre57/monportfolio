@@ -245,14 +245,25 @@
 
     //curseer animation
 
-    var curser = document.querySelector(".curser");
-    var curser2 = document.querySelector(".curser2");
+    let requestId;
 
-    document.addEventListener("mousemove", function(e){
-        curser.style.cssText = curser2.style.cssText = "left: " + e.clientX + "px; top: " + e.clientY + "px;";
+    document.addEventListener("mousemove", function(e) {
+        if (requestId) {
+            cancelAnimationFrame(requestId);
+        }
+    
+        requestId = requestAnimationFrame(() => {
+            const x = e.clientX;
+            const y = e.clientY;
+    
+            curser.style.left = `${x}px`;
+            curser.style.top = `${y}px`;
+            
+            curser2.style.left = `${x}px`;
+            curser2.style.top = `${y}px`;
+        });
     });
-
-
+    
     // counterUp
     $('.counter').counterUp({
         delay: 10,
