@@ -97,12 +97,18 @@ nav.solutek_menu {
 .solutek_menu > ul > li > a {
   display: block;
   margin: 23px 21px 23px;
-  -webkit-transition: 0.5s;
+  -webkit-transition: color 0.5s; /* Préfixe pour la transition */
+  transition: color 0.5s; /* Version standard pour la transition */
   text-decoration: none;
   font-size: 16px;
   color: #ffffff;
   font-weight: 400;
-  font-family: "Fira Sans";
+  font-family: "Fira Sans", sans-serif; /* Ajout d'une police de secours */
+}
+
+/* Exemple d'effet de survol */
+.solutek_menu > ul > li > a:hover {
+  color: #ffcc00; /* Changez la couleur au survol si nécessaire */
 }
 
 nav.solutek_menu ul li a i {
@@ -142,8 +148,9 @@ nav.solutek_menu span {
   background: #fff;
   margin: 0;
   z-index: 1;
-  -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
-  transition: 0.5s;
+  -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3); /* Préfixe pour Safari */
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3); /* Version standard */
+  transition: opacity 0.5s, visibility 0.5s; /* Transition pour la visibilité et l'opacité */
   visibility: hidden;
   opacity: 0;
   border-bottom: 3px solid #ff3b00;
@@ -151,9 +158,8 @@ nav.solutek_menu span {
 }
 
 .solutek_menu ul li:hover > .sub-menu {
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
   visibility: visible;
-  top: 100%;
+  top: 100%; /* Ajustement de la position si nécessaire */
   opacity: 1;
   z-index: 9999;
 }
@@ -186,56 +192,51 @@ nav.solutek_menu span {
   color: #fff !important;
 }
 
-/* sub menu 2 */
-
+/* Sub Menu 2 */
 .solutek_menu ul .sub-menu .sub-menu {
+  position: absolute;  /* Ajout de la position absolue */
   left: 100%;
   top: 130%;
   opacity: 0;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   visibility: hidden;
+  transition: opacity 0.5s, visibility 0.5s; /* Transition pour l'opacité et la visibilité */
 }
 
 .solutek_menu ul .sub-menu li:hover > .sub-menu {
   opacity: 1;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
   visibility: visible;
-  top: 0%;
+  top: 0%; /* Ajustement de la position si nécessaire */
 }
-
-/* sub menu 3 */
-
+/* Sub Menu 3 */
 .solutek_menu ul .sub-menu .sub-menu li {
-  position: relative;
+  position: relative; /* Position pour les éléments du sous-menu */
 }
 
 .solutek_menu ul .sub-menu .sub-menu .sub-menu {
+  position: absolute; /* Ajout de la position absolue */
   right: 100%;
   left: auto;
   top: 130%;
   opacity: 0;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   visibility: hidden;
+  transition: opacity 0.5s, visibility 0.5s; /* Transition pour l'opacité et la visibilité */
 }
 
 .solutek_menu ul .sub-menu .sub-menu li:hover > .sub-menu {
   opacity: 1;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
   visibility: visible;
-  top: 0%;
+  top: 0%; /* Ajustement de la position si nécessaire */
 }
 
-/* sub menu 4 */
-
+/* Sub Menu 4 */
 .solutek_menu ul .sub-menu .sub-menu .sub-menu li {
-  position: relative;
+  position: relative; /* Position pour les éléments du sous-menu */
 }
 
 .solutek_menu ul .sub-menu .sub-menu .sub-menu li:hover > .sub-menu {
   opacity: 1;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
   visibility: visible;
-  top: 0%;
+  top: 0%; /* Ajustement de la position si nécessaire */
 }
 
 .solutek_menu li a:hover:before {
@@ -436,18 +437,24 @@ nav.solutek_menu span {
   content: "";
   height: 100%;
   width: 100%;
-  background: url(assets/images/hero-shape.png);
-  background-repeat: no-repeat;
+  background: url(assets/images/hero-shape.png) no-repeat center; /* Combinaison des propriétés */
   z-index: -1;
   right: -10%;
   top: -25%;
-  -webkit-animation-name: rotateme;
-  -webkit-animation-duration: 15s;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear;
-  animation-timing-function: linear;
-  background-position: center;
+  
+  /* Animation */
+  -webkit-animation: rotateme 15s linear infinite; /* Préfixe pour Safari ancien */
+  animation: rotateme 15s linear infinite; /* Version standard */
+}
+
+/* Ajoutez la définition de l'animation */
+@keyframes rotateme {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /*=====================================
@@ -931,17 +938,23 @@ h1.section-main-title2 {
   content: "";
   height: 100%;
   width: 100%;
-  background: url(assets/images/contact-shape.png);
+  background: url(assets/images/contact-shape.png) no-repeat center; /* Combinaison des propriétés */
   left: -20%;
-  background-repeat: no-repeat;
-  background-position: center;
   top: 33%;
-  -webkit-animation-name: rotateme;
-  -webkit-animation-duration: 15s;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear;
-  animation-timing-function: linear;
+  
+  /* Animation */
+  -webkit-animation: rotateme 15s linear infinite; /* Préfixe pour Safari ancien */
+  animation: rotateme 15s linear infinite; /* Version standard */
+}
+
+/* Ajoutez la définition de l'animation si ce n'est pas déjà fait */
+@keyframes rotateme {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .contact-video-icon a {
@@ -2563,23 +2576,30 @@ ul.testi-rating li {
   content: "";
   width: 70px;
   height: 70px;
-  line-height: 70px;
+  line-height: 70px; /* Utilisé pour centrer le contenu si nécessaire */
   border: 2px dashed #fff;
   border-radius: 50%;
   top: 0;
   left: 0;
-  -webkit-animation-name: rotateme;
-  -webkit-animation-duration: 15s;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear;
-  animation-timing-function: linear;
+
+  /* Animation */
+  -webkit-animation: rotateme 15s linear infinite; /* Préfixe pour Safari ancien */
+  animation: rotateme 15s linear infinite; /* Version standard */
+}
+
+/* Ajoutez la définition de l'animation si ce n'est pas déjà fait */
+@keyframes rotateme {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .address-box2 {
   float: right;
 }
-
 .address-area .solutek-btn a {
   display: inline-block;
   background: #050a1e;
@@ -4529,14 +4549,21 @@ ul.list-style-one li a:hover {
   position: absolute;
   top: -50px;
   left: -154px;
-  -webkit-animation-name: rotateme;
-  -webkit-animation-duration: 15s;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear;
-  animation-timing-function: linear;
+
+  /* Animation */
+  -webkit-animation: rotateme 15s linear infinite; /* Préfixe pour Safari ancien */
+  animation: rotateme 15s linear infinite; /* Version standard */
 }
 
+/* Ajoutez la définition de l'animation si ce n'est pas déjà fait */
+@keyframes rotateme {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 .hero-active .owl-prev {
   font-size: 16px;
   line-height: 28px;
@@ -6083,13 +6110,26 @@ p.services-details-desc {
   left: 0;
 }
 
+.widget-category ul {
+  display: flex; /* Utilisation de flexbox */
+  justify-content: space-between; /* Ajustez selon vos besoins */
+  padding: 0; /* Ajoutez du remplissage si nécessaire */
+}
+
+.widget-category ul li {
+  position: relative; /* Nécessaire pour le positionnement des icônes */
+}
+
 .widget-category ul li i {
   color: black;
-  display: inline-block;
-  float: right;
   font-size: 17px;
-  opacity: 0;
-  transition: 0.5s;
+  opacity: 0; /* Opacité initiale pour les effets d'animation */
+  transition: opacity 0.5s; /* Spécification de la propriété animée */
+}
+
+/* Exemple d'effet : rendre l'icône visible au survol */
+.widget-category ul li:hover i {
+  opacity: 1; /* Rend l'icône visible au survol */
 }
 
 .widget-category ul li a:hover i {
@@ -6125,10 +6165,20 @@ p.services-details-desc {
   color: #fff;
 }
 
+.widget-sidber-download-button {
+  display: flex; /* Utilisation de flexbox */
+  justify-content: space-between; /* Ajustement de l'espace entre les éléments */
+  align-items: center; /* Aligne les éléments au centre verticalement */
+}
+
+.widget-sidber-download-button span {
+  display: flex; /* Permet d'utiliser flexbox pour le contenu du span */
+  align-items: center; /* Centre verticalement le texte et l'icône */
+}
+
 .widget-sidber-download-button span i {
-  float: right;
-  display: inline-block;
   font-size: 16px;
+  margin-left: 8px; /* Ajoutez de l'espace entre le texte et l'icône */
 }
 
 .widget-sidber-download-button a.active span i {
@@ -7067,39 +7117,36 @@ p.blog-details-desc.three {
   top: 0;
   right: 30px;
   color: #ffffff;
-  background-image: -moz-linear-gradient(0deg, #d1651a 0%, #c1282a 100%);
-  background-image: -webkit-linear-gradient(0deg, #d1651a 0%, #c1282a 100%);
+  background: linear-gradient(0deg, #d1651a 0%, #c1282a 100%); /* Utilisation de la syntaxe standard */
   z-index: 9999;
   width: 45px;
-  text-align: center;
   height: 45px;
-  line-height: 42px;
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transition: all 0.9s ease-out 0s;
-  -moz-transition: all 0.9s ease-out 0s;
+  line-height: 42px; /* Pour centrer verticalement le contenu */
+  text-align: center;
   border-radius: 10px;
+  opacity: 0; /* Opacité initiale */
+  visibility: hidden; /* Masqué par défaut */
+  transition: opacity 0.9s ease-out, visibility 0.9s ease-out; /* Transition pour une meilleure performance */
 }
 
+/* Exemple d'activation du bouton lorsqu'il doit être visible */
+.scroll-area.show-go-top .go-top {
+  opacity: 1; /* Rendre visible */
+  visibility: visible; /* Afficher */
+}
 .scroll-area .go-top i {
   position: absolute;
   top: 50%;
-  left: -4px;
-  right: 0;
-  margin: 0 auto;
+  left: 50%; /* Centrer horizontalement */
+  transform: translate(-50%, -50%); /* Centrer l'icône complètement */
   font-size: 15px;
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
-  -webkit-transition: all 0.5s ease-out 0s;
-  -moz-transition: all 0.5s ease-out 0s;
+  transition: all 0.5s ease-out; /* Simplification de la transition */
 }
-
 .scroll-area .go-top i:last-child {
   opacity: 0;
   visibility: hidden;
   top: 60%;
 }
-
 .scroll-area .go-top::before {
   content: "";
   position: absolute;
@@ -7107,21 +7154,25 @@ p.blog-details-desc.three {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
+  z-index: -1; /* Assurez-vous que cela ne masque pas le bouton */
   background-image: linear-gradient(to right, #ffc704 0%, #ffc704 100%);
-  background-image: -ms-linear-gradient(0deg, #ffc704 0%, #ffc704 100%);
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transition: all 0.5s ease-out 0s;
-  -moz-transition: all 0.5s ease-out 0s;
-  border-radius: 100%;
+  opacity: 0; /* Invisible par défaut */
+  visibility: hidden; /* Masqué par défaut */
+  transition: opacity 0.5s ease-out, visibility 0.5s ease-out; /* Transition pour une meilleure performance */
+  border-radius: 100%; /* Arrondi complet */
+}
+
+/* État au survol ou au focus */
+.scroll-area .go-top:focus::before,
+.scroll-area .go-top:hover::before {
+  opacity: 1; /* Rendre visible au survol ou au focus */
+  visibility: visible; /* Afficher */
 }
 
 .scroll-area .go-top:focus,
 .scroll-area .go-top:hover {
-  color: #fff;
+  color: #fff; /* Change la couleur du texte */
 }
-
 .scroll-area .go-top:focus::before,
 .scroll-area .go-top:hover::before {
   opacity: 1;
@@ -7143,14 +7194,13 @@ p.blog-details-desc.three {
 }
 
 .scroll-area .go-top.active {
-  top: 95%;
-  -webkit-transform: translateY(-98%);
-  -moz-transform: translateY(-98%);
-  opacity: 1;
-  visibility: visible;
-  border-radius: 0;
-  right: 30px;
-  border-radius: 100%;
+  top: 95%; /* Positionnement vertical */
+  transform: translateY(-98%); /* Transform pour centrer l'élément */
+  opacity: 1; /* Rendre visible */
+  visibility: visible; /* Afficher l'élément */
+  right: 30px; /* Positionnement horizontal */
+  border-radius: 100%; /* Arrondi complet */
+  transition: all 0.5s ease-out; /* Transition pour tous les changements */
 }
 
 .top-wrap {
@@ -7177,19 +7227,29 @@ p.blog-details-desc.three {
 }
 
 .top-wrap .go-top-button::after {
-  z-index: -1;
   content: "";
   position: absolute;
   left: 3px;
   top: 3px;
   width: 45px;
   height: 45px;
-  -webkit-animation: ripple 1.6s ease-out infinite;
-  -moz-animation: ripple 1.6s ease-out infinite;
-  opacity: 0;
-  background-image: -moz-linear-gradient(0deg, #ffc704 0%, #ffc704 100%);
-  background-image: -webkit-linear-gradient(0deg, #ffc704 0%, #ffc704 100%);
-  border-radius: 100%;
+  border-radius: 100%; /* Arrondi complet */
+  background: linear-gradient(0deg, #ffc704 0%, #ffc704 100%); /* Syntaxe standard */
+  opacity: 0; /* Invisible par défaut */
+  z-index: -1; /* Assurez-vous que cela ne masque pas le bouton */
+  animation: ripple 1.6s ease-out infinite; /* Animation */
+}
+
+/* Définition de l'animation ripple (ajoutez ceci si ce n'est pas déjà fait) */
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4); /* Ajustez la taille selon vos besoins */
+    opacity: 0; /* Devenir transparent */
+  }
 }
 
 .top-wrap .go-top-button:hover {
@@ -7523,87 +7583,86 @@ p.blog-details-desc.three {
   -o-animation-iteration-count: infinite;
   -o-animation-timing-function: linear;
 }
+@keyframes float-bob {
+  0% {
+    transform: translateY(-30px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(-30px);
+  }
+}
+
+/* Ajoutez le préfixe pour la compatibilité avec d'anciens navigateurs si nécessaire */
 @-webkit-keyframes float-bob {
   0% {
     -webkit-transform: translateY(-30px);
-    transform: translateY(-30px);
   }
   50% {
     -webkit-transform: translateY(-15px);
-    transform: translateY(-15px);
   }
   100% {
     -webkit-transform: translateY(-30px);
-    transform: translateY(-30px);
   }
 }
-@-webkit-keyframes float-bob2 {
+@keyframes float-bob2 {
   0% {
-    -webkit-transform: translateY(-60px);
     transform: translateY(-60px);
   }
   50% {
-    -webkit-transform: translateY(-30px);
     transform: translateY(-30px);
   }
   100% {
-    -webkit-transform: translateY(-60px);
     transform: translateY(-60px);
   }
 }
-@-webkit-keyframes float-bob3 {
+
+@keyframes float-bob3 {
   0% {
-    -webkit-transform: translateY(-50px);
     transform: translateY(-50px);
   }
   50% {
-    -webkit-transform: translateY(-20px);
     transform: translateY(-20px);
   }
   100% {
-    -webkit-transform: translateY(-50px);
     transform: translateY(-50px);
   }
 }
-@-webkit-keyframes float-bob4 {
+
+@keyframes float-bob4 {
   0% {
-    -webkit-transform: translateY(-50px);
     transform: translateY(-50px);
   }
   50% {
-    -webkit-transform: translateY(-15px);
     transform: translateY(-15px);
   }
   100% {
-    -webkit-transform: translateY(-50px);
     transform: translateY(-50px);
   }
 }
-@-webkit-keyframes float-bob5 {
+
+@keyframes float-bob5 {
   0% {
-    -webkit-transform: translateY(-50px);
     transform: translateY(-50px);
   }
   50% {
-    -webkit-transform: translateY(-10px);
     transform: translateY(-10px);
   }
   100% {
-    -webkit-transform: translateY(-50px);
     transform: translateY(-50px);
   }
 }
-@-webkit-keyframes float-bob6 {
+
+@keyframes float-bob6 {
   0% {
-    -webkit-transform: translateY(-40px);
     transform: translateY(-40px);
   }
   50% {
-    -webkit-transform: translateY(-20px);
     transform: translateY(-20px);
   }
   100% {
-    -webkit-transform: translateY(-40px);
     transform: translateY(-40px);
   }
 }
@@ -7672,39 +7731,53 @@ p.blog-details-desc.three {
  ==================================================-*/
 /**/
 .dance3 {
-  -webkit-animation: dance3 8s alternate infinite;
+  -webkit-animation: dance3 8s alternate infinite; /* Préfixe pour Chrome, Safari */
+  animation: dance3 8s alternate infinite;          /* Version standard */
 }
+
 @keyframes dance3 {
   0% {
     -webkit-transform: scale(0.5);
+    transform: scale(0.5); /* Version standard */
   }
   100% {
     -webkit-transform: scale(1);
+    transform: scale(1); /* Version standard */
   }
 }
+
 .dance {
-  -webkit-animation: dance 2s alternate infinite;
+  -webkit-animation: dance 2s alternate infinite; /* Préfixe pour Chrome, Safari */
+  animation: dance 2s alternate infinite;          /* Version standard */
 }
+
 @keyframes dance {
   0% {
     -webkit-transform: scale(0.5);
+    transform: scale(0.5); /* Version standard */
   }
   100% {
     -webkit-transform: scale(1.2);
+    transform: scale(1.2); /* Version standard */
   }
 }
 .dance2 {
-  -webkit-animation: dance2 4s alternate infinite;
+  -webkit-animation: dance2 4s alternate infinite; 
+  -moz-animation: dance2 4s alternate infinite;    
+  animation: dance2 4s alternate infinite;      
 }
 @keyframes dance2 {
   0% {
     -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0); /* Version standard */
   }
   50% {
     -webkit-transform: translate3d(25px, -25px, 0);
+    transform: translate3d(25px, -25px, 0); /* Version standard */
   }
   100% {
     -webkit-transform: translate3d(0, -25px, 25px);
+    transform: translate3d(0, -25px, 25px); /* Version standard */
   }
 }
 .watermark-animate {
@@ -7753,24 +7826,24 @@ p.blog-details-desc.three {
   }
 }
 
-/* ripple-red */
+/* Ripple Effect */
 .ripple {
-  -webkit-animation: ripple-red 1s linear infinite;
-  animation: ripple-red 1s linear infinite;
-  -webkit-transition: 0.5s;
+  animation: ripple-red 1s linear infinite; /* Utilisation de l'animation standard */
+  transition: 0.5s; /* Transition pour les effets */
 }
-@-webkit-keyframes ripple-red {
+
+@keyframes ripple-red {
   0% {
-    -webkit-box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.3),
-      0 0 0 10px rgba(255, 255, 255, 0.3), 0 0 0 20px rgba(255, 255, 255, 0.3);
-    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.3),
-      0 0 0 10px rgba(255, 255, 255, 0.3), 0 0 0 20px rgba(255, 255, 255, 0.3);
+    box-shadow: 
+      0 0 0 0 rgba(255, 255, 255, 0.3),
+      0 0 0 10px rgba(255, 255, 255, 0.3),
+      0 0 0 20px rgba(255, 255, 255, 0.3);
   }
   100% {
-    -webkit-box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.3),
-      0 0 0 20px rgba(255, 255, 255, 0.3), 0 0 0 30px rgba(255, 255, 255, 0);
-    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.3),
-      0 0 0 20px rgba(255, 255, 255, 0.3), 0 0 0 30px rgba(212, 90, 219, 0);
+    box-shadow: 
+      0 0 0 10px rgba(255, 255, 255, 0.3),
+      0 0 0 20px rgba(255, 255, 255, 0.3),
+      0 0 0 30px rgba(212, 90, 219, 0);
   }
 }
 
